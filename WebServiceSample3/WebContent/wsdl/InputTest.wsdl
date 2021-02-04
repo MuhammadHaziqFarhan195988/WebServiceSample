@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://DefaultNamespace" xmlns:intf="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://DefaultNamespace" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addStudent">
+    <complexType>
+     <sequence>
+      <element name="ID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addStudentResponse">
+    <complexType>
+     <sequence>
+      <element name="addStudentReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addStudentRequest">
+
+      <wsdl:part element="impl:addStudent" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addStudentResponse">
+
+      <wsdl:part element="impl:addStudentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="InputTest">
+
+      <wsdl:operation name="addStudent">
+
+         <wsdl:input message="impl:addStudentRequest" name="addStudentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addStudentResponse" name="addStudentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="InputTestSoapBinding" type="impl:InputTest">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addStudent">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addStudentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addStudentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="InputTestService">
+
+      <wsdl:port binding="impl:InputTestSoapBinding" name="InputTest">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServiceSample3/services/InputTest"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
